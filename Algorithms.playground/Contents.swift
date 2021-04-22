@@ -10,13 +10,14 @@ let array = [0,9,7,8,4,3,10,12,14]
 var firstHalf = Array(array[0...array.count/2 - 1])
 var secondHalf = Array(array[array.count/2...array.count - 1])
 
-
+// сортировка половин массива
 func recursiveSort() -> [Int] {
-    // sort will be here
+    // сортировка придет сюда попозже, я пока не знаю, как сделать это рекурсивно и нормально
     
     return []
 }
-// return sorted array
+
+// собственно - слияние массивов
 func merge(firstArray: [Int], secondArray: [Int], count: Int) -> [Int] {
     var i = 0
     var j = 0
@@ -49,7 +50,7 @@ func merge(firstArray: [Int], secondArray: [Int], count: Int) -> [Int] {
     return result
 }
 
-// test merge 
+// Проверка функции merge 
 let a = [0, 1, 4, 6]
 let b = [2, 3, 5, 9]
 
