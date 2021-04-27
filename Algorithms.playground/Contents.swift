@@ -65,10 +65,12 @@ func merge(firstArray: [Int], secondArray: [Int], count: Int) -> [Int] {
 }
 
 firstHalf = recursiveSort(firstHalf)
+// [0, 7, 8, 9]
 secondHalf = recursiveSort(secondHalf)
+// [3, 4, 10, 12, 14]
 
 merge(firstArray: firstHalf, secondArray: secondHalf, count: array.count)
-
+// [0, 3, 4, 7, 8, 9, 10, 12, 14]
 
 // Проверка функции merge
 let a = [0, 1, 4, 6]
