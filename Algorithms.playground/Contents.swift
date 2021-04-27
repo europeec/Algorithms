@@ -6,7 +6,8 @@ import Foundation
     а после происходит слияние.
 */
 
-let array = [0,9,7,8,4,3,10,12,14]
+var array = [0,9,7,8,4,3,10,12,14]
+
 var firstHalf = Array(array[0...array.count/2 - 1])
 var secondHalf = Array(array[array.count/2...array.count - 1])
 
@@ -76,5 +77,12 @@ merge(firstArray: firstHalf, secondArray: secondHalf, count: array.count)
 let a = [0, 1, 4, 6]
 let b = [2, 3, 5, 9]
 
+
 merge(firstArray: a, secondArray: b, count: 8)
 // 0, 1, 2, 3, 4, 5, 6, 9
+
+// mergesort(...) - stdlib 
+
+
+array.sort(by: <)
+// O(n*log(n)) тоже самое что и merge
