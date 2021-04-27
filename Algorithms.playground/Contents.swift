@@ -11,10 +11,25 @@ var firstHalf = Array(array[0...array.count/2 - 1])
 var secondHalf = Array(array[array.count/2...array.count - 1])
 
 // сортировка половин массива
-func recursiveSort() -> [Int] {
-    // сортировка придет сюда попозже, я пока не знаю, как сделать это рекурсивно и нормально
+func recursiveSort(_ inputArray: [Int]) -> [Int] {
+
+    var result: [Int]
     
-    return []
+    if inputArray.count > 3 {
+        // если массив больше 3 элементов, то делим еще и опять вызываем функцию
+        var _firstHalf = Array(inputArray[0...inputArray.count/2 - 1])
+        _firstHalf = recursiveSort(_firstHalf)
+        
+        var _secondHalf = Array(inputArray[inputArray.count/2...inputArray.count - 1])
+        _secondHalf = recursiveSort(_secondHalf)
+        
+        result = merge(firstArray: _firstHalf, secondArray: _secondHalf, count: inputArray.count)
+    } else {
+        // если массив достаточно маленький, просто сортируем его
+        result = inputArray.sorted(by: <)
+    }
+    
+    return result
 }
 
 // собственно - слияние массивов
@@ -25,7 +40,6 @@ func merge(firstArray: [Int], secondArray: [Int], count: Int) -> [Int] {
     var result = [Int]()
     
     for _ in 0..<count {
-    
         if i < firstArray.count {
             if j < secondArray.count {
                 if firstArray[i] <= secondArray[j] {
@@ -50,7 +64,13 @@ func merge(firstArray: [Int], secondArray: [Int], count: Int) -> [Int] {
     return result
 }
 
-// Проверка функции merge 
+firstHalf = recursiveSort(firstHalf)
+secondHalf = recursiveSort(secondHalf)
+
+merge(firstArray: firstHalf, secondArray: secondHalf, count: array.count)
+
+
+// Проверка функции merge
 let a = [0, 1, 4, 6]
 let b = [2, 3, 5, 9]
 
